@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+              <li class="nav-item">
+                <a class="nav-link"  routerLinkActive="active" [routerLink]="['home']">Home</a>
+               </li>
+
+               <li class="nav-item">
+                <a class="nav-link"  routerLinkActive="active" [routerLink]="['protegida']">Protegida</a>
+               </li>
+
+               <li class="nav-item">
+                <a class="nav-link"  routerLinkActive="active" [routerLink]="['precio']">Precio</a>
+               </li>
+        </ul>
+   
+        <h4>BIENVENIDO</h4>
+        <ul *ngIf="auth.logIn">
+          <li>{{ user?.email }}</li>
+          <li>{{ user?.nombre }} {{ user?.apellido }}</li>
+          <li>{{ user?.telefono }}</li>
+        </ul>
+        
+        <button *ngIf="!auth.logIn" type="button" class="btn btn-outline-primary ms-2" (click)="abrirformulario()">Ingresar</button>
+
+        <button *ngIf="auth.logIn" (click)="logout()" class="btn btn-outline-danger ms-2">Salir</button>
+
+      </div>
+    </div>
+  </nav>
